@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
@@ -56,7 +57,7 @@ fun RepositoryListItem(
                     ),
                     contentDescription = "Repository Owner",
                     modifier = Modifier
-                        .size(24.dp)
+                        .size(36.dp)
                         .clip(CircleShape)
                 )
                 Spacer(modifier = Modifier.width(8.dp))
@@ -67,8 +68,15 @@ fun RepositoryListItem(
                 )
                 Spacer(modifier = Modifier.weight(1f))
                 Text(
-                    text = "Stars: " + repository.stargazersCount.toString(),
+                    text = repository.stargazersCount.toString(),
                     style = MaterialTheme.typography.labelMedium
+                )
+                Image(
+                    painterResource(id = com.lopanovych.newstarrepos.R.mipmap.ic_github_stars),
+                    contentDescription = "Repository Owner",
+                    modifier = Modifier
+                        .padding(4.dp)
+                        .size(14.dp)
                 )
             }
         }
